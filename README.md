@@ -33,3 +33,5 @@
 - ระบบเช็กคะแนนรายบุคคลในแต่ละ Course
 - Dashboard ของตัวเอง
 - ระบบ Profile 
+- ระบบ messages
+- ระบบเก็บ file 
