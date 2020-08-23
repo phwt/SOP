@@ -1,9 +1,9 @@
 ## MEMBER
-- 61070044 	ณภัทร พรบุญเรือง 		Front-End Developer [Facebook](https://www.facebook.com/TiannyCandle "Naphat Pornbunruang")
-- 61070084 	ธรรมสรณ์ ตันติยาภินันท์		Project Manager [Facebook](https://www.facebook.com/tangtms "Tummasorn Tantiyapinun")
-- 61070173 	ภูวทิตต์ สัมมาวัฒน์ 		Back-End Developer [Facebook](https://www.facebook.com/phwt.smwt "Phuwathid Summaviwat")
-- 61070213 	วีรพงศ์ ทันจันทึก 			Software Tester [Facebook](https://www.facebook.com/veerapong.poom "Veerapong Poom")
-- 61070239 	สหัสวรรษ หิรัญเพชร	 	Database Administrator [Facebook](https://www.facebook.com/maizerocom/ "Sahatsawat Hiranpetch")
+- 61070044 	ณภัทร พรบุญเรือง 		Front-End Developer
+- 61070084 	ธรรมสรณ์ ตันติยาภินันท์		Project Manager
+- 61070173 	ภูวทิตต์ สัมมาวัฒน์ 		Back-End Developer
+- 61070213 	วีรพงศ์ ทันจันทึก 			Software Tester
+- 61070239 	สหัสวรรษ หิรัญเพชร	 	Database Administrator
 
 ## ROLES
 ### Project Manager
