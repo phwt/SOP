@@ -11,8 +11,9 @@ package texteditorsop;
  */
 public class EditorJava extends EditorTab {
 
-    public EditorJava() {
+    public EditorJava(String name) {
+        super(name);
         this.content = "public static void main(String[] args) {}";
     }
-    
+
 }

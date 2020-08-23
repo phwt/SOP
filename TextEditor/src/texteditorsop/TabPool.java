@@ -11,24 +11,29 @@ import java.util.ArrayList;
  *
  * @author LAB304_41
  */
-public class TabPool extends ArrayList<EditorTab>{
+public class TabPool extends ArrayList<EditorTab> {
+
     public static TabPool TAB_POOL;
-    
+
     private TabPool() {
     }
-    
+
     public static TabPool getInstance() {
         if (TAB_POOL == null) {
             TAB_POOL = new TabPool();
         }
         return TAB_POOL;
     }
-    
+
+    public boolean tabExist(int index) {
+        return !(index > this.size());
+    }
+
     public String listTab() {
-        String tabList = "";
-   
-        for (EditorTab tab: TAB_POOL) {
-            tabList += "Tab Number: " + (TAB_POOL.indexOf(tab) + 1) + "\n\t" + tab.content + "\n";
+        String tabList = "#\t|\tTab Name\n";
+
+        for (EditorTab tab : TAB_POOL) {
+            tabList += (TAB_POOL.indexOf(tab) + 1) + "\t|\t" + tab.name + "\n";
         }
 
         return tabList;

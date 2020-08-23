@@ -13,26 +13,46 @@ import java.util.Scanner;
  */
 public abstract class EditorTab implements Cloneable {
 
+    String name = "";
     String content = "";
 
-    public EditorTab() {
-        System.out.println("-------------------");
-        System.out.println("New Mode:");
+    public EditorTab(String name) {
+        this.name = name;
+    }
 
-        Scanner scanner = new Scanner(System.in);
-        String content = scanner.nextLine();
-
-        this.content = content;
+//    public EditorTab() {
+//        System.out.println("-------------------");
+//        System.out.println("New Mode:");
+//
+//        Scanner scanner = new Scanner(System.in);
+//        String content = scanner.nextLine();
+//
+//        this.content = content;
+//    }
+//
+//    public void edit() {
+//        System.out.println("-------------------");
+//        System.out.println("Edit Mode:");
+//
+//        Scanner scanner = new Scanner(System.in);
+//        String content = scanner.nextLine();
+//
+//        this.content = content;
+//    }
+    
+    public void view() {
+        System.out.println("\n--- Showing content of: " + this.name + " ---");
+        System.out.println(this.content);
+        System.out.println("--- EOF ---\n");
     }
 
     public void edit() {
-        System.out.println("-------------------");
-        System.out.println("Edit Mode:");
+        System.out.println("\n--- Editing: " + this.name + " ---");
+        System.out.println("Enter file content below this line:");
 
         Scanner scanner = new Scanner(System.in);
-        String content = scanner.nextLine();
-
-        this.content = content;
+        this.content = scanner.nextLine();
+        System.out.println("--- File: " + this.name + " edited ---\n");
     }
 
     public Object clone() {

@@ -9,6 +9,9 @@ package texteditorsop;
  *
  * @author LAB304_41
  */
-public class EditorEmpty extends EditorTab{
-    
+public class EditorEmpty extends EditorTab {
+
+    public EditorEmpty(String name) {
+        super(name);
+    }
 }

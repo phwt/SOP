@@ -9,9 +9,10 @@ package texteditorsop;
  *
  * @author LAB304_41
  */
-public class EditorJS extends EditorJava {
+public class EditorJS extends EditorTab {
 
-    public EditorJS() {
+    public EditorJS(String name) {
+        super(name);
         this.content = "const x = y = {}";
     }
     
