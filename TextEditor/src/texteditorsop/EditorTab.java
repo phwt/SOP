@@ -19,26 +19,6 @@ public abstract class EditorTab implements Cloneable {
     public EditorTab(String name) {
         this.name = name;
     }
-
-//    public EditorTab() {
-//        System.out.println("-------------------");
-//        System.out.println("New Mode:");
-//
-//        Scanner scanner = new Scanner(System.in);
-//        String content = scanner.nextLine();
-//
-//        this.content = content;
-//    }
-//
-//    public void edit() {
-//        System.out.println("-------------------");
-//        System.out.println("Edit Mode:");
-//
-//        Scanner scanner = new Scanner(System.in);
-//        String content = scanner.nextLine();
-//
-//        this.content = content;
-//    }
     
     public void view() {
         System.out.println("\n--- Showing content of: " + this.name + " ---");
