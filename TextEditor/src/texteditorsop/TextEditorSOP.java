@@ -5,8 +5,6 @@
  */
 package texteditorsop;
 
-import java.util.Scanner;
-
 /**
  *
  * @author LAB304_41
@@ -17,11 +15,7 @@ public class TextEditorSOP {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Scanner cliInput = new Scanner(System.in);
-        while (true) {
-            System.out.print("> ");
-            CLI.receiveCommand(cliInput.nextLine());
-        }
+        EditorCLI.init();
     }
 
 }

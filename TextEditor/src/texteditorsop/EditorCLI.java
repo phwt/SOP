@@ -5,11 +5,21 @@
  */
 package texteditorsop;
 
+import java.util.Scanner;
+
 /**
  *
  * @author phwt
  */
-public class CLI {
+public class EditorCLI {
+
+    public static void init() {
+        Scanner cliInput = new Scanner(System.in);
+        while (true) {
+            System.out.print("> ");
+            EditorCLI.receiveCommand(cliInput.nextLine());
+        }
+    }
 
     public static void receiveCommand(String commandSet) {
         String[] commands = commandSet.split(" ");
