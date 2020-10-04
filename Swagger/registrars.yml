@@ -7,21 +7,470 @@ host: "example.com"
 basePath: "/taxi"
 
 tags:
-- name: "course"
-  description: "Manage course"
-- name: "student"
-  description: "Manage student"
-- name: "lecturer"
-  description: "Manage lecturer"
-- name: "finance"
-  description: "Manage finance"
-- name: "evaluation"
-  description: "Manage evaluation"
-- name: "grade"
-  description: "Manage grade"
-- name: "form-km"
-  description: "Manage form-km"
+  - name: "course"
+    description: "Manage course"
+  - name: "student"
+    description: "Manage student"
+  - name: "lecturer"
+    description: "Manage lecturer"
+  - name: "finance"
+    description: "Manage finance"
+  - name: "evaluation"
+    description: "Manage evaluation"
+  - name: "grade"
+    description: "Manage grade"
 
 schemes:
-- "https"
-- "http"
+  - "https"
+  - "http"
+
+paths:
+  /course/:
+    post:
+      tags:
+        - "course"
+      summary: "Add course"
+      parameters:
+        - in: "body"
+          name: "body"
+          description: "Updated course"
+          required: true
+          schema:
+            $ref: "#/definitions/Course"
+      responses:
+        "200":
+          description: "successful operation"
+
+  /course/{courseId}:
+    get:
+      tags:
+        - "course"
+      summary: "Get course"
+      parameters:
+        - name: "courseId"
+          in: path
+          description: "ID of course to fetch"
+          required: true
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: "Course information"
+          schema:
+            $ref: "#/definitions/Course"
+        "400":
+          description: "Invalid input"
+        "404":
+          description: "Method not found"
+    put:
+      tags:
+        - "course"
+      summary: "Update course"
+      parameters:
+        - name: "courseId"
+          in: path
+          description: "ID of course to update"
+          required: true
+          type: integer
+          format: int64
+        - in: "body"
+          name: "body"
+          description: "Updated course infomation"
+          required: true
+          schema:
+            $ref: "#/definitions/Course"
+      responses:
+        "200":
+          description: "successful operation"
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "Method not found"
+    delete:
+      tags:
+        - "course"
+      summary: "Delete course"
+      parameters:
+        - name: "courseId"
+          in: path
+          description: "ID of courseId method to delete"
+          required: true
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: "successful operation"
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "Course not found"
+
+  /student/:
+    post:
+      tags:
+        - "student"
+      summary: "Add student"
+      parameters:
+        - in: "body"
+          name: "body"
+          description: "Updated course"
+          required: true
+          schema:
+            $ref: "#/definitions/Student"
+      responses:
+        "200":
+          description: "successful operation"
+
+  /student/{studentId}:
+    get:
+      tags:
+        - "student"
+      summary: "Get student"
+      parameters:
+        - name: "studentId"
+          in: path
+          description: "ID of student to fetch"
+          required: true
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: "student information"
+          schema:
+            $ref: "#/definitions/Student"
+        "400":
+          description: "Invalid input"
+        "404":
+          description: "Method not found"
+    put:
+      tags:
+        - "student"
+      summary: "Update student"
+      parameters:
+        - name: "studentId"
+          in: path
+          description: "ID of student to update"
+          required: true
+          type: integer
+          format: int64
+        - in: "body"
+          name: "body"
+          description: "Updated student infomation"
+          required: true
+          schema:
+            $ref: "#/definitions/Student"
+      responses:
+        "200":
+          description: "successful operation"
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "Method not found"
+    delete:
+      tags:
+        - "student"
+      summary: "Delete student"
+      parameters:
+        - name: "studentId"
+          in: path
+          description: "ID of studentId method to delete"
+          required: true
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: "successful operation"
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "student not found"
+
+  /lecturer/:
+    post:
+      tags:
+        - "lecturer"
+      summary: "Add lecturer"
+      parameters:
+        - in: "body"
+          name: "body"
+          description: "Updated lecturer"
+          required: true
+          schema:
+            $ref: "#/definitions/Lecturer"
+      responses:
+        "200":
+          description: "successful operation"
+
+  /lecturer/{lecturerId}:
+    get:
+      tags:
+        - "lecturer"
+      summary: "Get lecturer"
+      parameters:
+        - name: "lecturerId"
+          in: path
+          description: "ID of lecturer to fetch"
+          required: true
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: "lecturer information"
+          schema:
+            $ref: "#/definitions/Lecturer"
+        "400":
+          description: "Invalid input"
+        "404":
+          description: "Method not found"
+    put:
+      tags:
+        - "lecturer"
+      summary: "Update lecturer"
+      parameters:
+        - name: "lecturerId"
+          in: path
+          description: "ID of lecturer to update"
+          required: true
+          type: integer
+          format: int64
+        - in: "body"
+          name: "body"
+          description: "Updated lecturer infomation"
+          required: true
+          schema:
+            $ref: "#/definitions/Lecturer"
+      responses:
+        "200":
+          description: "successful operation"
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "Method not found"
+    delete:
+      tags:
+        - "lecturer"
+      summary: "Delete lecturer"
+      parameters:
+        - name: "lecturerId"
+          in: path
+          description: "ID of lecturerId method to delete"
+          required: true
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: "successful operation"
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "lecturer not found"
+  /finance/{studentId}:
+    put:
+      tags:
+        - "finance"
+      summary: "Set student payment status"
+      description: ""
+      operationId: ""
+      parameters:
+        - name: "studentId"
+          in: path
+          description: "ID of Student"
+          required: true
+          type: integer
+          format: int64
+        - in: "body"
+          name: "body"
+          description: "Updated method"
+          required: true
+          schema:
+            type: "object"
+            properties:
+              payment:
+                type: boolean
+                enum:
+                  - true
+      responses:
+        "200":
+          description: Finance Updated
+        "400":
+          description: Bad request.
+
+    get:
+      tags:
+        - "finance"
+      summary: "View student payment status"
+      description: ""
+      operationId: ""
+      parameters:
+        - name: "studentId"
+          in: path
+          description: "ID of Student"
+          required: true
+          type: "string"
+      responses:
+        "200":
+          description: Requested data in JSON format
+          schema:
+            type: "object"
+            properties:
+              payment:
+                type: boolean
+                enum:
+                  - true
+        "400":
+          description: Bad request
+  /evaluation/{courseId}:
+    post:
+      tags:
+        - "evaluation"
+      summary: "Submit evaluation to courseâ€™s lecturer"
+      description: ""
+      operationId: ""
+      parameters:
+        - name: "courseId"
+          in: "path"
+          description: "ID of course"
+          required: true
+          type: "integer"
+          format: "int64"
+        - in: "body"
+          name: "body"
+          description: "Updated method"
+          required: true
+          schema:
+            $ref: "#/definitions/Rating"
+      responses:
+        "200":
+          description: " Evaluation sent"
+          schema:
+            $ref: "#/definitions/Rating"
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "Method not found"
+    get:
+      tags:
+        - "evaluation"
+      summary: "Get course evaluation"
+      description: ""
+      operationId: ""
+      parameters:
+        - name: "courseId"
+          in: "path"
+          description: "ID of course"
+          required: true
+          type: "integer"
+          format: "int64"
+      responses:
+        "200":
+          description: "List of evaluation received"
+          schema:
+            type: "object"
+            properties:
+              rating:
+                type: "number"
+                format: "float"
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "Method not found"
+  /grade/{courseId}:
+    post:
+      tags:
+        - "grade"
+      summary: "Submit students grade to a course"
+      parameters:
+        - in: "body"
+          name: "body"
+          description: "Grade Student"
+          required: true
+          schema:
+            type: "object"
+            properties:
+              id:
+                type: "interger"
+                format: "integer"
+                description: "Student grade"
+                example: "61070173"
+              grade:
+                type: "string"
+                example: "F"
+      responses:
+        "200":
+          description: "Send Grade"
+          schema:
+            type: "string"
+            format: "string"
+            example: Grade sent
+
+  /grade/view:
+    post:
+      tags:
+        - "grade"
+      summary: "Student view ownâ€™s grade of a course"
+      parameters:
+        - in: "body"
+          name: "body"
+          description: "Grade Student"
+          required: true
+          schema:
+            type: "object"
+            properties:
+              courseId:
+                type: "integer"
+                format: "integer"
+                description: "Student grade"
+                example: "06016321"
+              id:
+                type: "string"
+                example: "61070173"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            # $ref: type: "object"
+            properties:
+              grade:
+                type: "number"
+                format: "integer"
+                description: "Your grade is"
+                example: F
+        "400":
+          description: "Invalid StudentId or CourseId"
+        "404":
+          description: "Method not found"
+
+definitions:
+  Course:
+    type: "object"
+    properties:
+      name:
+        type: "string"
+        example: "MDP"
+      description:
+        type: "string"
+        example: "mobile device programing"
+  Student:
+    type: "object"
+    properties:
+      id:
+        type: "number"
+        format: "integer"
+        description: "Passenger's saved payment method"
+        example: 61070084
+      name:
+        type: "string"
+        example: "MDP"
+  Lecturer:
+    type: "object"
+    properties:
+      name:
+        type: "string"
+        example: "Naphat Phoburiasds"
+  Rating:
+    type: "object"
+    properties:
+      rating:
+        type: "number"
+        format: "float"
+        example: 5
