@@ -195,6 +195,274 @@ paths:
           schema:
             $ref: "#/definitions/Coordinates"
 
+  /vehicle:
+    post:
+      tags:
+      - "vehicle"
+      summary: "Add vehicle"
+      parameters:
+        - in: "body"
+          name: "body"
+          description: "Vehicle info"
+          required: true
+          schema:
+            $ref: "#/definitions/Vehicle"
+      responses:
+        "200":
+          description: "successful operation"
+
+  /vehicle/{vehicleId}:
+    get:
+      tags:
+      - "vehicle"
+      summary: "Get a vehicle"
+      parameters:
+        - name: "vehicleId"
+          in: path
+          description: "ID of vehicle to fetch"
+          required: true
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/Vehicle"
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "Vehicle not found"
+    put:
+      tags:
+      - "vehicle"
+      summary: "Update vehicle method"
+      parameters:
+        - name: "vehicleId"
+          in: path
+          description: "ID of vehicle to update"
+          required: true
+          type: integer
+          format: int64
+        - in: "body"
+          name: "body"
+          description: "Updated vehicle info"
+          required: true
+          schema:
+            $ref: "#/definitions/Vehicle"
+      responses:
+        "200":
+          description: "successful operation"
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "Vehicle not found"
+    delete:
+      tags:
+      - "vehicle"
+      summary: "Delete vehicle"
+      parameters:
+        - name: "vehicleId"
+          in: path
+          description: "ID of vehicle to delete"
+          required: true
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: "successful operation"
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "Vehicle not found"
+  /messaging/{receiverId}:
+    post:
+      tags:
+        - "messaging"
+      summary: "Send message to driver/passenger"
+        # summary: "Communication between driver and passenger"
+      parameters:
+        - name: "receiverId"
+          in: path
+          description: "ID of receiver"
+          required: true
+          type: integer
+        - name: "body"
+          in: body
+          description: "Message"
+          required: true
+          schema:
+            type: "string"
+            example: Hi There
+      responses:
+          "200":
+            description: "Send message Successful"
+            schema:
+              type: "string"
+              format: "string"
+              example: Send message Successful
+          "400":
+            description: "Invalid input"
+    get:
+      tags:
+        - "messaging"
+      summary: "Receive message to driver/passenger"
+      parameters:
+        - name: "receiverId"
+          in: path
+          description: "Message to driver/passenger"
+          required: true
+          type: integer
+      responses:
+          "200":
+            description: "Receive message Successful"
+            schema:
+              type: "string"
+              format: "string"
+              example: Successful Receive message from driver/passenger
+          "400":
+            description: "Invalid input"
+
+  /rating/:
+    post:
+      tags:
+      - "feedback"
+      summary: "Rate driver"
+      description: ""
+      operationId: ""
+      parameters:
+        - in: "body"
+          name: "body"
+          description: "Updated method"
+          required: true
+          schema:
+            type: "object"
+            properties:
+              driverId:
+                type: string
+                enum:
+                  - "97859"
+              rating:
+                type: integer
+                enum:
+                  - 5
+
+      responses:
+        "200":
+          description: " Rate Added"
+        "400":
+          description: "Invalid ID supplied"
+  
+  /rating/{driverId}:
+    post:
+      tags:
+      - "feedback"
+      summary: "View driver rating"
+      description: ""
+      operationId: ""
+      parameters:
+        - name: "driverId"
+          in: "path"
+          description: "ID of Driver"
+          required: true
+          type: "integer"
+          format: "int64"
+
+      responses:
+        "200":
+          description: " Passenger Accepted"
+          schema:
+            type: "object"
+            properties:
+              rating:
+                type: integer
+                enum:
+                  - 5
+        "400":
+          description: "Invalid ID supplied"
+
+  /promotion/:
+    post:
+      tags:
+      - "promotion"
+      summary: "Add promotion"
+      description: ""
+      operationId: ""
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Promotion object"
+        required: true
+        schema:
+          $ref: '#/definitions/Promotions'
+      responses:
+        "200":
+          description: "Promotion Added"
+          schema:
+            $ref: '#/definitions/Promotions'
+            
+  /promotion/{promotionId}:
+    get:
+      tags:
+      - "promotion"
+      summary: "Get promotion"
+      description: ""
+      operationId: ""
+      parameters:
+      - name: "promotionId"
+        in: "path"
+        description: "Promotion object"
+        required: true
+        type: "integer"
+        format: "int64"
+
+      responses:
+        "200":
+          description: "Promotion Information"
+          schema:
+            $ref: '#/definitions/Promotions'
+
+  /driver/accept/{passengerId}:
+    post:
+      tags:
+      - "driver"
+      summary: "Accept passenger"
+      description: ""
+      operationId: ""
+      parameters:
+        - name: "passengerId"
+          in: "path"
+          description: "ID of Passenger"
+          required: true
+          type: "integer"
+          format: "int64"
+
+      responses:
+        "200":
+          description: " Passenger Accepted"
+        "400":
+          description: "Invalid ID supplied"
+  
+  /driver/reject/{passengerId}:
+    post:
+      tags:
+      - "driver"
+      summary: "Reject passenger"
+      description: ""
+      operationId: ""
+      parameters:
+        - name: "passengerId"
+          in: "path"
+          description: "ID of Passenger"
+          required: true
+          type: "integer"
+          format: "int64"
+
+      responses:
+        "200":
+          description: " Passenger Accepted"
+        "400":
+          description: "Invalid ID supplied"
+
 definitions:
   Payment:
     type: "object"
@@ -240,3 +508,25 @@ definitions:
         type: "number"
         format: "double"
         example: 100.780140
+  Vehicle:
+    type: "object"
+    properties:
+      name:
+        type: "string"
+        example: "Toyota"
+      type:
+        type: "string"
+        example: "4 wheel"
+  Promotions:
+    type: "object"
+    properties:
+      id:
+        type: "number"
+        format: "integer"
+        example: 1
+      message:
+        type: "string"
+        format: "string"
+        description: "Promotion saved"
+        example: "Buy 2 get 1 free" 
+
