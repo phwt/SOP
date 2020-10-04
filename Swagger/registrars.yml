@@ -1,0 +1,27 @@
+swagger: "2.0"
+info:
+  description: "Service Oriented Programming - Workshop 2"
+  version: "1.0.0"
+  title: "KMITL Registrars"
+host: "example.com"
+basePath: "/taxi"
+
+tags:
+- name: "course"
+  description: "Manage course"
+- name: "student"
+  description: "Manage student"
+- name: "lecturer"
+  description: "Manage lecturer"
+- name: "finance"
+  description: "Manage finance"
+- name: "evaluation"
+  description: "Manage evaluation"
+- name: "grade"
+  description: "Manage grade"
+- name: "form-km"
+  description: "Manage form-km"
+
+schemes:
+- "https"
+- "http"
