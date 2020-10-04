@@ -50,27 +50,9 @@ paths:
           - "photoUrls"
           properties:
             from:
-              type: "object"
-              properties:
-                lat:
-                  type: "number"
-                  format: "double"
-                  example: 13.730275
-                lon:
-                  type: "number"
-                  format: "double"
-                  example: 100.780140
+              $ref: "#/definitions/Coordinates"
             to:
-              type: "object"
-              properties:
-                lat:
-                  type: "number"
-                  format: "double"
-                  example: 13.727436
-                lon:
-                  type: "number"
-                  format: "double"
-                  example: 100.747675
+              $ref: "#/definitions/Coordinates"
       responses:
         "200":
           description: "Estimated fare in THB"
@@ -100,25 +82,9 @@ paths:
           - "photoUrls"
           properties:
             driver:
-              type: "object"
-              properties:
-                id:
-                  type: "number"
-                  format: "integer"
-                  example: 1
-                vehicle_id:
-                  type: "number"
-                  format: "integer"
-                  example: 22
+              $ref: "#/definitions/Driver"
             passenger:
-              type: "object"
-              properties:
-                id:
-                  type: "number"
-                  format: "integer"
-                  example: 221
-                payment:
-                  $ref: "#/definitions/Payment"
+              $ref: "#/definitions/Passenger"
             fare:
               type: "number"
               format: "float"
@@ -208,6 +174,26 @@ paths:
           description: "Invalid ID supplied"
         "404":
           description: "Method not found"
+  
+  /tracking:
+    post:
+      tags:
+      - "tracking"
+      summary: "Get driver current location"
+      description: ""
+      operationId: ""
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Driver's object"
+        required: true
+        schema:
+          $ref: "#/definitions/Driver"
+      responses:
+        "200":
+          description: "Vehicle's current location"
+          schema:
+            $ref: "#/definitions/Coordinates"
   
   /pet:
     post:
@@ -771,6 +757,37 @@ definitions:
         enum:
         - "credit_card"
         - "online_banking"
+  Driver:
+    type: "object"
+    properties:
+      id:
+        type: "number"
+        format: "integer"
+        example: 1
+      vehicle_id:
+        type: "number"
+        format: "integer"
+        example: 22
+  Passenger:
+    type: "object"
+    properties:
+      id:
+        type: "number"
+        format: "integer"
+        example: 221
+      payment:
+        $ref: "#/definitions/Payment"
+  Coordinates:
+    type: "object"
+    properties:
+      lat:
+        type: "number"
+        format: "double"
+        example: 13.730275
+      lon:
+        type: "number"
+        format: "double"
+        example: 100.780140
   Order:
     type: "object"
     properties:
