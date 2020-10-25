@@ -20,11 +20,12 @@
     <!-- Page Content -->
     <div class="content">
       <!-- Stats -->
-      <b-row>
+      <b-row v-if="loaded">
         <StatusCard
-          v-for="app in application"
-          :key="app.name"
-          :serviceData="app.instance[0]"
+          v-for="app in registered"
+          :key="app"
+          :appName="app"
+          :serviceData="application.find((i) => i.name === app)"
         />
       </b-row>
       <!-- END Stats -->
@@ -42,7 +43,9 @@ export default {
   components: { StatusCard },
   data() {
     return {
+      registered: ['STUDENTSERVICE', 'TEACHERSERVICE'],
       application: [],
+      loaded: false,
     }
   },
   async created() {
@@ -50,6 +53,7 @@ export default {
       Accept: 'application/json',
     })
     this.application = data.applications.application
+    this.loaded = true
   },
 }
 </script>
