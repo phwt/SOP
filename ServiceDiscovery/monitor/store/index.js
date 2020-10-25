@@ -24,7 +24,7 @@ const createStore = () => {
     state: {
       // App vital details
       app: {
-        name: 'OneUI Vue Edition',
+        name: 'Service Discovery',
         version: process.env.PACKAGE_VERSION,
         copyright: helpers.getCurrentYear(),
       },
