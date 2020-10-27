@@ -18,5 +18,6 @@ module.exports = {
   // add your custom rules here
   rules: {
     'prefer-const': 0,
+    'prettier/prettier': 0,
   },
 }
