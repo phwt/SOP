@@ -43,7 +43,13 @@ export default {
   components: { StatusCard },
   data() {
     return {
-      registered: ['STUDENTSERVICE', 'TEACHERSERVICE'],
+      registered: [
+        'STUDENTSERVICE',
+        'TEACHERSERVICE',
+        'REGISTRARSERVICE',
+        'WORKSERVICE',
+        'ACCOUNTSERVICE',
+      ],
       application: [],
       loaded: false,
     }
