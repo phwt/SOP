@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.microservices.servicediscovery</groupId>
-	<artifactId>service-discovery-client1</artifactId>
+	<artifactId>service-discovery-client3</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>service-discovery-client1</name>
+	<name>service-discovery-client3</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
